@@ -1,13 +1,19 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 
 export default function App() {
   const navigation = useNavigation();
 
   const handleButton = () => {
-    navigation.navigate("Feed");
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: "Feed",
+      })
+    );
+    // Modelo antigo:
+    // navigation.navigate("Feed");
   };
 
   return (

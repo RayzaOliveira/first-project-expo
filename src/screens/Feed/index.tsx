@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
@@ -6,7 +6,11 @@ const Feed = () => {
   const navigation = useNavigation();
 
   const handleButton = () => {
-    navigation.navigate("Perfil");
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: "Perfil",
+      })
+    );
   };
   return (
     <View style={styles.container}>
