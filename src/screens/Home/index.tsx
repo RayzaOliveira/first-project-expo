@@ -3,8 +3,12 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation, CommonActions } from "@react-navigation/native";
 
+import Button from "../../components/Button";
+import { useAuth } from "../../providers/AuthProvider/useAuth";
+
 export default function App() {
   const navigation = useNavigation();
+  const { signOut } = useAuth();
 
   const handleButton = () => {
     navigation.dispatch(
@@ -30,6 +34,8 @@ export default function App() {
       <TouchableOpacity style={styles.button} onPress={handleButton}>
         <Text>Feed</Text>
       </TouchableOpacity>
+
+      <Button title="Logout" onPress={signOut} />
 
       <StatusBar style="auto" />
     </View>
